@@ -1,8 +1,6 @@
-//import tools.multitool;
 import java.util.Scanner;
 
-public class Principal {
-
+public class Ppal_4a {
 	public static void main(String[] args) {
 		int i;
 		int[] vector= new int[3];
@@ -24,20 +22,21 @@ public class Principal {
 	        
 	  if (comd.equals("")) { // si llegara hasta acá en "" => no funcionó arriba
  
-	    	Scanner scn = new Scanner(System.in);
-	    	i= 0;
-	    	while (i<=3) {
-	    		if (i<3) {
-		    		System.out.println("Ingrese el número "+(i+1));
-			    	numStr = scn.nextLine();
-		    		vector[i]= Integer.parseInt(numStr);
-	    		}
-	    		else {
-		    		System.out.println("Ingrese el comando (u o d): ");
-		    		comd = scn.nextLine();
-	    		};
-	    		i++;
-	    	}
+	    	try (Scanner scn = new Scanner(System.in)) {
+				i= 0;
+				while (i<=3) {
+					if (i<3) {
+						System.out.println("Ingrese el número "+(i+1));
+				    	numStr = scn.nextLine();
+						vector[i]= Integer.parseInt(numStr);
+					}
+					else {
+						System.out.println("Ingrese el comando (u o d): ");
+						comd = scn.nextLine();
+					};
+					i++;
+				}
+			} catch (Exception e) { comd= "";}
 	    	};
 	    	show(vector, comd);
 	    }
@@ -64,4 +63,5 @@ public class Principal {
 	    	}
 	    	else if (comd.equals("d")) mT.sortShowTrio(vect, false);			    		
 	}
+
 }

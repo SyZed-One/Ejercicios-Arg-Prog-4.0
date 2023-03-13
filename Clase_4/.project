@@ -3,7 +3,6 @@
 	<name>Clase_4</name>
 	<comment></comment>
 	<projects>
-		<project>Clase_3</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
