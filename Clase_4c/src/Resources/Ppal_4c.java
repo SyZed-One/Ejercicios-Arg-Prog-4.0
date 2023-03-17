@@ -1,5 +1,6 @@
 package Resources;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
@@ -13,11 +14,11 @@ public class Ppal_4c {
 
 	public static void main(String[] args) {
 		String operac = args[0];  	//será "code" o "deco"
-		String despStr = args[1]; 	//desplazamiento (entero positivo de cero en adelante)
+		String despStr = args[1]; 	//desplazamiento (siempre entero positivo de cero en adelante)
 		String archEnt = args[2]; 	//Archivo de entrada
 		String archSal = args[3];	//Archivo de salida
 		boolean allOK = true;		//bandera de "todo bien"	
-		List<String> lineas = null; //Las líneas que se van a leer
+			List<String> lineas = null; //Las líneas que se van a leer
 		int despInt;				//conversión del desplazamiento a un entero
 		//* para chequear alguna falla en args
 		System.out.println(operac);
@@ -27,12 +28,12 @@ public class Ppal_4c {
 		//*/
 		operac.toLowerCase();    //por las dudas
 		try {
-			lineas= Files.readAllLines(Paths.get(archEnt));
+			lineas= Files.readAllLines(Paths.get(archEnt), StandardCharsets.UTF_8);
 			//for (int i = 0; i < lineas.size(); i++) {
 			//System.out.println(lineas.get(i));
 			}
 		 catch (IOException e) {
-			System.out.println("La operación falló con el archivo de entrada");
+			System.out.println("La operación falló con el archivo de entrada "+e);
 			allOK = false;
 		 	};
 		try {
@@ -42,13 +43,12 @@ public class Ppal_4c {
 			}
 			else
 				if (operac.equals("deco")) {
-					encodeLines(lineas, despInt, archSal);				
+					encodeLines(lineas, -despInt, archSal);				
 				}
 				else allOK= false;
 				
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				//e.printStackTrace();
+				System.out.println("La operación falló en la codificación/decodificación. "+e);
 				allOK= false;
 			};
 	if (allOK) System.out.println("La operación fue exitosa :) ");
