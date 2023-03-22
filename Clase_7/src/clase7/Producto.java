@@ -1,4 +1,4 @@
-package resources;
+package clase7;
 
 public class Producto { 
 		private String nombreProd;
@@ -56,20 +56,27 @@ public class Producto {
 		}
 
 		//este es interesante: asigna reserva si hay stock
-		public boolean setCantProd(int cantProd) {
+		public boolean setCantProd(int cantProd) throws NoHayStockException {
 			if (this.cantStock>=cantProd) {
 				this.cantProd = cantProd;
 				this.cantStock= this.cantProd-cantProd; //se achica el stock
 				this.noHayStock= false;
 			}
-			else this.noHayStock= true;
+			else {
+				this.noHayStock= true;
+				throw new NoHayStockException(this);
+			};
 			return !this.noHayStock;
 		}
 
 		//Métodos Propios de Producto. 
 		//Este devuelve el precio o una exception
-		public float costoFinal() {
-			return this.precio;
+		public float costoFinal() throws NoHayStockException {
+			
+			if (this.noHayStock) {
+				throw new NoHayStockException(this);
+			}
+			return precio;
 		}
 		
 	}

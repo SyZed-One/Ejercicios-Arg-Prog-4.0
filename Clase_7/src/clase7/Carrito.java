@@ -1,4 +1,4 @@
-package resources;
+package clase7;
 
 import java.util.ArrayList;
 
@@ -48,17 +48,13 @@ public class Carrito {
 	}
 	
 /*******************************************************************************/
-	public boolean addProd2Carrito(Producto prod, int cant) {
-		boolean todoBien= true;
+	public void addProd2Carrito(Producto prod, int cant) throws NoHayStockException {
+
 		if	(prod.setCantProd(cant)) {
 			this.prodsInCarrito.add(prod);
 			System.out.println("ADD-> "+String.valueOf(cant)+" PU$ "+String.valueOf(prod.getPrecio()));
 		}
-		else {
-			System.out.println("No hay stock del producto "+prod.getCodigo()+" "+prod.getNombreProd())
-			todoBien= false;
-		}
-		return todoBien;
+		else throw new NoHayStockException(prod);
 	}
 	
 /*******************************************************************************/
