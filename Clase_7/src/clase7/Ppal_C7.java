@@ -21,14 +21,20 @@ public class Ppal_C7 {
 		boolean todoBien= true;
 		
 			carro.setUnaPersona(pers);
+			Descuento descFijo= new DescuentoFijo(300); //300pe fijos
+			Descuento descPorc= new DescuentoPorcentaje(12); //12%
+			Descuento descPorcCT= new DescPorcConTope(30); //Al crear el obj se define el tope
+			
+			descPorcCT.setValorDesc(15); //si acá quiero poner >30 no me lo TOMA
+			
 			prodList = loadProds("ListadoUTF.csv");
 		try {				
 			carro.addProd2Carrito(prodList.get(0), 1); //se pueden agregar algunos random
 			carro.addProd2Carrito(prodList.get(1), 3); //se pueden agregar algunos random
 			carro.addProd2Carrito(prodList.get(4), 1); //se pueden agregar algunos random
-			carro.setcantCuotas(2);			//La persona indica en cuantas cuotas paga
-			carro.setRecargoFinanciero(10); //recargo financiero en porcentaje
-			costo = carro.costoFinal();
+			carro.setcantCuotas(2);				//La persona indica en cuantas cuotas paga
+			carro.setRecargoFinanciero(10); 	//recargo financiero en porcentaje
+			costo = carro.costoFinal(descPorcCT);	//Aplico UNO solo de los tipos de descuento
 		}
 		catch (NoHayStockException e) {
 			todoBien= false;

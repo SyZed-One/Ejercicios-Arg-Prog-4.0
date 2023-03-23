@@ -10,8 +10,8 @@ public class Carrito {
 	private float recFin= 10;  //% Recargo Por Financiación: porcentaje de recargo mensual por cuotas>1
 	private int cantCuotas=1; // cantidad de cuotas
 
-	public Carrito() {
-		this.fechaCompra= "";
+	public Carrito(String fecha) {
+		this.fechaCompra= fecha;
 	}
 	
 	public Persona getUnaPersona() {
@@ -58,14 +58,18 @@ public class Carrito {
 	}
 	
 /*******************************************************************************/
-	public float costoFinal() {
+	public float costoFinal(Descuento des) {
 		float acum=0;
 		for (int i=0; i<this.prodsInCarrito.size(); i++) {
 			Producto prod = this.prodsInCarrito.get(i);
 			acum = acum + prod.getCantProd() * prod.getPrecio();
 		};
+		acum = des.valorFinal(acum); //Primero aplicamos los descuentos pertinentes al precio bruto
+		//Pero como también puede pagar en cuotas hay que aplicar el recargo con más de una cuota 
 		System.out.println("Cuotas= "+String.valueOf(this.cantCuotas)+" RF% "+String.valueOf(this.recFin));
-		return acum * (1+(this.cantCuotas-1)*this.recFin/100); //una cuota no aplica recargo
+		acum = acum * (1+(this.cantCuotas-1)*this.recFin/100); //una cuota no aplica recargo
+		
+		return acum;
 	}
 
 /***************************************************************************/

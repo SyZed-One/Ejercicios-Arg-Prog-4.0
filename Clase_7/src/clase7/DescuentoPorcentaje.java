@@ -3,15 +3,15 @@ package clase7;
 public class DescuentoPorcentaje extends Descuento{
 
 	
-	public DescuentoPorcentaje() {
-		super();
+	public DescuentoPorcentaje(float valor) {
+		super.setValorDesc(valor);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public float valorFinal(float valorInicial) {
-		// TODO Auto-generated method stub
-		return 0;
+		System.out.println("Descuento Porcentual del "+String.valueOf(this.getValorDesc()+"%"));
+		return valorInicial - valorInicial*super.getValorDesc()/100; //acá se resta un porcentaje
 	}
 
 	
