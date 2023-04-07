@@ -55,7 +55,7 @@ public class Carrito {
 			System.out.println("ADD-> "+String.valueOf(cant)+" PU$ "+String.valueOf(prod.getPrecio()));
 		}
 		else {
-			System.out.println("No hay stock del producto "+prod.getCodigo()+" "+prod.getNombreProd())
+			System.out.println("No hay stock del producto "+prod.getCodigo()+" "+prod.getNombreProd());
 			todoBien= false;
 		}
 		return todoBien;

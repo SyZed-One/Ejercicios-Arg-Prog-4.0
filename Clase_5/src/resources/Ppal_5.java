@@ -7,19 +7,18 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import clase7.NoHayStockException;
-import clase7.Producto;
-
 public class Ppal_5 {
-	static Persona pers = new Persona("Josefina", "Sánchez", "34563645", "01/02/2002");
-	static ArrayList<Producto> prodList = new ArrayList();
-	static Carrito carro= new Carrito();
-	static float costo=0;
+	
+	public static void main(String[] args) {
+	Persona pers = new Persona("Josefina", "Sánchez", "34563645", "01/02/2002");
+	ArrayList<Producto> prodList = new ArrayList();
+	Carrito carro= new Carrito();
+	float costo=0;
 	boolean todoBien= true;
 	
 	carro.setUnaPersona(pers);
 	prodList = loadProds("ListadoUTF.csv");
-				
+	if (prodList!=null) {		
 	todoBien = todoBien && (carro.addProd2Carrito(prodList.get(0), 1)); //se pueden agregar algunos random
 	todoBien = todoBien && (carro.addProd2Carrito(prodList.get(1), 3)); //se pueden agregar algunos random
 	todoBien = todoBien && (carro.addProd2Carrito(prodList.get(4), 1)); //se pueden agregar algunos random
@@ -29,7 +28,7 @@ public class Ppal_5 {
 		costo = carro.costoFinal();
 		System.out.println(pers.Nombre+" "+pers.Apellido+ " abonará en total: $"+costo);
 	}
-	else System.out.println("Operación Inválida. No hay Stock de: "+e.getProducto().getNombreProd());
+	}
 }
 
 
