@@ -1,5 +1,6 @@
 package clase7;
 
+
 public class DescPorcConTope extends DescuentoPorcentaje {
 
 	private float tope;

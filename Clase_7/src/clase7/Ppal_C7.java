@@ -6,7 +6,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-
 import clase7.Carrito;
 import clase7.Persona;
 import clase7.Producto;
@@ -15,8 +14,8 @@ public class Ppal_C7 {
 
 	public static void main(String[] args) {
 		Persona pers = new Persona("Josefina", "Sánchez", "34563645", "01/02/2002");
-		ArrayList<Producto> prodList = new ArrayList();
-		Carrito carro= new Carrito();
+		ArrayList<Producto> prodList = new ArrayList<Producto>();
+		Carrito carro= new Carrito("24/03/2023");
 		float costo=0;
 		boolean todoBien= true;
 		
@@ -30,7 +29,7 @@ public class Ppal_C7 {
 			prodList = loadProds("ListadoUTF.csv");
 		try {				
 			carro.addProd2Carrito(prodList.get(0), 1); //se pueden agregar algunos random
-			carro.addProd2Carrito(prodList.get(1), 3); //se pueden agregar algunos random
+			carro.addProd2Carrito(prodList.get(1), 2); //se pueden agregar algunos random
 			carro.addProd2Carrito(prodList.get(4), 1); //se pueden agregar algunos random
 			carro.setcantCuotas(2);				//La persona indica en cuantas cuotas paga
 			carro.setRecargoFinanciero(10); 	//recargo financiero en porcentaje
@@ -48,7 +47,7 @@ public class Ppal_C7 {
 		public static ArrayList<Producto> loadProds(String fileName) {
 			Path path = Path.of(fileName);
 			boolean exists = Files.exists(path);
-			ArrayList<Producto> auxProdList = new ArrayList();
+			ArrayList<Producto> auxProdList = new ArrayList<Producto>();
 			List<String> listado = null; 
 			if (exists) {
 			try {
