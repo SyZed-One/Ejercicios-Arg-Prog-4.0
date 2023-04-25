@@ -6,12 +6,12 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-
+	
 public class Ppal_5 {
 	
 	public static void main(String[] args) {
 	Persona pers = new Persona("Josefina", "Sánchez", "34563645", "01/02/2002");
-	ArrayList<Producto> prodList = new ArrayList();
+	ArrayList<Producto> prodList = new ArrayList<Producto>();
 	Carrito carro= new Carrito();
 	float costo=0;
 	boolean todoBien= true;
@@ -36,7 +36,7 @@ public class Ppal_5 {
 public static ArrayList<Producto> loadProds(String fileName) {
 	Path path = Path.of(fileName);
 	boolean exists = Files.exists(path);
-	ArrayList<Producto> auxProdList = new ArrayList();
+	ArrayList<Producto> auxProdList = new ArrayList<Producto>();
 	List<String> listado = null; 
 	if (exists) {
 	try {

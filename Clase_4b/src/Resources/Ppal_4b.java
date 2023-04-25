@@ -6,30 +6,33 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class Ppal_4b {
+	
+	//Argumentos para copiar y pegar
+	//"E:\\Eclipse Works\\Archivo.txt" "suma"
 
 	public static void main(String[] args) {
 		String archivo = args[0];
 		String operac = args[1];
 		operac.toLowerCase();
-		List<String> linea = null;
+		List<String> lineas = null;
 		
 		try {
-			linea= Files.readAllLines(Paths.get(archivo));
-			for (int i = 0; i < linea.size(); i++) {
-			System.out.println(linea.get(i));
+			lineas= Files.readAllLines(Paths.get(archivo));
+			for (int i = 0; i < lineas.size(); i++) {
+			System.out.println(lineas.get(i));
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
-			System.out.println("La vida es cruel");
+			System.out.println("La vida es cruel. Error: "+e);
 		};
 		try {
 			if (operac.equals("suma")) {
-				archiSuma(linea);				
+				archiSuma(lineas);				
 			}
 			else
 				if (operac.equals("prod")) {
-					archiProd(linea);				
+					archiProd(lineas);				
 				}
 				else
 					System.out.println("Comando inapropiado o mal escrito !");

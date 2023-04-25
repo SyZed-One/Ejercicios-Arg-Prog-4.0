@@ -4,6 +4,10 @@ package clase7;
  * heredando de la clase superior Exception
  */
 public class NoHayStockException extends Exception{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private final Producto producto;
 	
 	public NoHayStockException(Producto producto) {

@@ -6,9 +6,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import clase7.Carrito;
-import clase7.Persona;
-import clase7.Producto;
 
 public class Ppal_C7 {
 
@@ -20,8 +17,8 @@ public class Ppal_C7 {
 		boolean todoBien= true;
 		
 			carro.setUnaPersona(pers);
-			Descuento descFijo= new DescuentoFijo(300); //300pe fijos
-			Descuento descPorc= new DescuentoPorcentaje(12); //12%
+			//Descuento descFijo= new DescuentoFijo(300); //300pe fijos
+			//Descuento descPorc= new DescuentoPorcentaje(12); //12%
 			Descuento descPorcCT= new DescPorcConTope(30); //Al crear el obj se define el tope
 			
 			descPorcCT.setValorDesc(15); //si acá quiero poner >30 no me lo TOMA

@@ -1,7 +1,8 @@
 package calc;
 
 public class Calcu {
-	public void Calcu() {
+	
+	public Calcu() {
 		//nada por aquí
 	}
 	

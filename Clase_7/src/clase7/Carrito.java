@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /*************************************************************/
 public class Carrito {
 	private Persona unaPersona;
-	private ArrayList<Producto> prodsInCarrito = new ArrayList(); //productos en el Carrito
+	private ArrayList<Producto> prodsInCarrito = new ArrayList<Producto>(); //productos en el Carrito
 	private String fechaCompra;
 	private float recFin= 10;  //% Recargo Por Financiación: porcentaje de recargo mensual por cuotas>1
 	private int cantCuotas=1; // cantidad de cuotas

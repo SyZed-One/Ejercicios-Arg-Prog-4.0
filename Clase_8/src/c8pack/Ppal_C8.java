@@ -19,8 +19,8 @@ public class Ppal_C8 {
 			boolean todoBien= true;
 			
 				carro.setUnaPersona(pers);
-				Descuento descFijo= new DescuentoFijo(300); //300pe fijos= Tiene un cupón de descuentos
-				Descuento descPorc= new DescuentoPorcentaje(12); //12%
+				//Descuento descFijo= new DescuentoFijo(300); //300pe fijos= Tiene un cupón de descuentos
+				//Descuento descPorc= new DescuentoPorcentaje(12); //12%
 				Descuento descPorcCT= new DescPorcConTope(30); //Al crear el obj se define el tope
 				
 				descPorcCT.setValorDesc(15); //si acá quiero poner >30 no me lo TOMA
@@ -55,7 +55,7 @@ public class Ppal_C8 {
 			public static ArrayList<Producto> loadProds(String fileName) {
 				Path path = Path.of(fileName);
 				boolean exists = Files.exists(path);
-				ArrayList<Producto> auxProdList = new ArrayList();
+				ArrayList<Producto> auxProdList = new ArrayList<Producto>();
 				List<String> listado = null; 
 				if (exists) {
 				try {
